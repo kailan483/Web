@@ -3,11 +3,9 @@ class View
     constructor(){
         this.blocksDiv = document.getElementById("blocks");   
         this.blocksDiv.style.display = "none";            
-        this.button = document.getElementById("button");        
-        this.render();
+        this.button = document.getElementById("button");                
     }
-    render(){
-        var digits = model.getDigits();
+    render(digits){        
         this.blocksDiv.innerHTML = "";
         for (let i = 0; i < digits.length; i++) {
             var block = document.createElement("div");

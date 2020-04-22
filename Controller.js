@@ -18,7 +18,7 @@ class Controller
         this.view.resetColors();
         this.view.hideStartButton();
         this.view.showDigitsBlock();
-        this.view.render();                
+        this.view.render(this.model.getDigits());                
         this.view.showDigits();
         this.view.showMistakeBlock();
         setTimeout(this.view.hideDigits.bind(view),5000);        
@@ -58,6 +58,7 @@ class Controller
         view.setButtonClickEvent(this.clickFunction);
         this.clickBlockFunction = this.clickBlock.bind(this);
         view.setClickBlockFunction(this.clickBlockFunction);
+        this.view.render(this.model.getDigits());
     }
 }
 var controller = new Controller(view,model);
