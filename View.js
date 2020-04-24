@@ -1,9 +1,6 @@
 class View
 { 
-    constructor(){
-        // this.blocksDiv = document.getElementById("blocks");   
-        // if (this.blocksDiv != null)
-        // this.blocksDiv.style.display = "none";                    
+    constructor(){                          
         this.canvas = document.getElementById("canvas");   
         this.canvas.width = 604;
         this.canvas.height = 124;         
@@ -24,9 +21,7 @@ class View
         this.mistakesCanvas.width = 604;
         this.mistakesCanvas.height = 200;
         this.mistakesContext.font = "24pt Verdana"                  
-
-        window.onresize = this.updateCanvasPos.bind(this);
-
+        
         this.blocks = [];
                         
         for (let i = 0; i < 5; i++){
@@ -85,20 +80,7 @@ class View
         this.buttonCanvasContext.fillStyle = "white";    
         var text = this.buttonCanvasContext.measureText("Начать игру");
         this.buttonCanvasContext.fillText("Начать игру",604 / 2 - text.width / 2,80);
-    }
-
-    render(digits){            
-        // this.renderMistakes(0);
-        // this.renderBlocks(digits);
-        this.renderStartButton();
-    }    
-
-    updateCanvasPos(){
-        var canvas = document.getElementById("canvas");
-        this.canvasLeft = canvas.offsetLeft;
-        this.canvasTop = canvas.offsetTop;        
-    }
-
+    }     
     setButtonClickEvent(clickFunction){
         if (this.buttonCanvas != null)
         this.buttonCanvas.onclick = clickFunction;               
@@ -144,15 +126,7 @@ class View
             }            
         }   
     }
-
-    resetColors(){
-        var blocks = document.getElementsByClassName("block");
-        if (blocks != null)
-        for (let i = 0; i < blocks.length; i++) {                        
-                blocks[i].style.backgroundColor = "dimgray";                            
-        }
-    }
-
+    
     hideStartButton(){
         this.buttonCanvasContext.clearRect(0,0,this.buttonCanvas.width,this.buttonCanvas.height);
     }    
@@ -161,10 +135,7 @@ class View
         this.context.clearRect(0,0,this.canvas.width,this.canvas.height);
     }
 
-    showDigitsBlock(){
-        if (this.button != null)
-        this.blocksDiv.style.display = "block";
-    }
+    
 
     updateMistakeBlock(count){
         this.hideMistakeBlock();

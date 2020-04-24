@@ -25,37 +25,7 @@ class Controller
         setTimeout(this.view.hideDigits.bind(view),5000);               
         setTimeout(this.view.setClickCanvasFunction.bind(view),5000,this.clickCanvasFunction);               
         this.view.setButtonClickEvent(undefined);
-    }
-    clickBlock(event){
-        var number = view.getNumberOfClickedBlock(event); 
-        var clickedDigit = this.model.getDigit(number);
-        var rightDigit = this.model.getDigitFromSorted(this.rightNumbersCount)
-
-        if (this.rightNumbersCount <= 4)
-        {
-            if (rightDigit != clickedDigit && this.rightDigits.indexOf(clickedDigit) == -1){
-                this.model.incrementMistakeCounter();
-                var count = model.getCountOfMistakes();
-                this.view.updateMistakeBlock(count);
-                this.view.playAudio("audio/error.wav");               
-            }
-            else if (this.rightDigits.indexOf(clickedDigit) == -1){                
-                this.view.showDigit(number);
-                this.rightDigits.push(rightDigit);
-                this.rightNumbersCount++;
-                this.view.playAudio("audio/success_sound.mp3");
-            }
-            if (this.rightNumbersCount == 5){
-
-                this.view.showDigit(number);
-                this.view.playAudio("audio/applause.mp3")
-                this.view.setButtonClickEvent(this.clickFunction);        
-                setTimeout(this.view.hideDigitsBlock.bind(view),1000);
-                setTimeout(this.view.showStartButton.bind(view),1000);                                
-                setTimeout(this.view.hideMistakeBlock.bind(view),1000);                                
-            }            
-        }         
-    }
+    }    
     clickCanvas(event){
         var index = this.view.clickCollision(event);        
         var clickedDigit = this.model.getDigit(index);
