@@ -5,14 +5,10 @@
 #mistakesCount{
     margin:0 auto 15px auto;
 }
-#canvas
-{
-    margin: 0 auto;
-    padding: 0;
-}
-#startGameButtonCanvas
+#startGameButtonSvg
 {
     margin: 15px auto 0 auto;
+    display: block;
 }
 .gameField
 {
@@ -21,6 +17,10 @@
     box-sizing: border-box;
     padding: 50px 0 0 0 ;
     text-align: center;    
+}
+#blocksSvg{
+    display: block;
+    margin: 30px auto 0 auto;
 }
 #blocks
 {
@@ -81,4 +81,25 @@
     font-size: 24pt;
     color: white;
     margin-bottom: 30px;
+}
+.startGameLabel{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 36pt;
+    fill: white;
+}
+.numberBlock{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 36pt;
+    fill: white;
+}
+#count
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 36pt;
+    fill: red;
+}
+.svgRect
+{
+    stroke: white;
+    stroke-width: 2;
 }
