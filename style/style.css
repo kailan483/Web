@@ -1,0 +1,73 @@
+*
+{
+    margin: 0;
+}
+.gameField
+{
+    background-color: orange;    
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 200px 0 0 0 ;
+    text-align: center;
+    
+}
+#blocks
+{
+    text-align: center;
+    font-size: 0;        
+}
+.block
+{
+    display: inline-block;
+    background-color: brown;
+    width: 120px;
+    height: 120px;
+    font-size: 64px;
+    position: relative;           
+    border: 2px solid black;
+}
+.block:not(:first-child){
+    border-left: 0px;
+}
+.block p
+{
+    position: absolute;
+    top: 50%;
+    transform:translate(0,-50%);
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+#button
+{        
+    /* color: ; */
+    width: 600px;
+    height: 120px;
+    background-color: yellowgreen;
+    color: white;
+    margin: 80px auto 0px auto;
+    text-align: center;
+    font-size: 36pt;
+    border-radius: 10px;
+}
+#button p
+{
+    line-height: 120px;
+}
+#mistakeCounter
+{
+    width: 120px;
+    height: 60px;
+    background-color: yellowgreen;
+    color: white;
+    font-size: 36pt;
+    text-align: center;
+    line-height: 60px;
+    margin: 0 auto 30px auto;
+}
+#mistakeCounterLabel
+{
+    font-size: 24pt;
+    color: white;
+    margin-bottom: 30px;
+}
