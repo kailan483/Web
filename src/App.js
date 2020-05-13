@@ -6,7 +6,8 @@ class CitySrch extends Component {
         super(props);
         this.state = { city: '', clicked: false, length: -1 };
         this.handleChange = this.handleChange.bind(this);
-        this.handleClick = this.handleClick.bind(this);        
+        this.handleClick = this.handleClick.bind(this);  
+        this.prevCity = '';      
     }
 
     handleChange(event) {
@@ -23,20 +24,30 @@ class CitySrch extends Component {
 
     render() {        
         if (this.state.clicked && this.state.length > 0) {
+            this.prevCity = this.state.city;
             return (<div className={"citySearch"}>
                 <input className={"srchInput"} type="text" value={this.state.city}
                     onChange={this.handleChange}
                     placeholder="Введите город" />
                 <button className={"srchBtn"} onClick={this.handleClick}>Поиск</button>
-                <WeatherDisplay name={this.state.city} />
+                <WeatherDisplay name={this.state.city} key={this.state.city} />
             </div>);
-        } else {
+        } else if (!this.state.clicked && this.prevCity.length > 0){
             return (<div className={"citySearch"}>
                 <input className={"srchInput"} type="text" value={this.state.city}
                     onChange={this.handleChange}
                     placeholder="Введите город" />
                 <button className={"srchBtn"} onClick={this.handleClick}>Поиск</button>
+                <WeatherDisplay name={this.prevCity} key={this.prevCity} />
             </div>);
+        }
+        else {
+            return (<div className={"citySearch"}>
+                <input className={"srchInput"} type="text" value={this.state.city}
+                    onChange={this.handleChange}
+                    placeholder="Введите город" />
+                <button className={"srchBtn"} onClick={this.handleClick}>Поиск</button>
+                </div>)
         }
     }
 }
