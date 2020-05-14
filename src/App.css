@@ -1,0 +1,145 @@
+* {
+    padding: 0;
+    margin: 0;    
+}
+
+.darkbg {
+    width: 100%;
+    height: 100%;
+}
+
+h4:hover {
+
+    text-shadow: red 0px 0px 25px;
+}
+
+h4, p {
+    margin:0 auto;
+    text-align: center;
+    transition: 1s;    
+    font-size: 24pt;    
+    margin-top: 15px;    
+    color: #555555;
+}
+
+.copyRight {
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    float: right;
+    text-align: right;
+}
+
+.citySearch {
+    padding-top: 90px;
+}
+
+.App {
+    margin: 0 auto;
+    height: 100%;
+    background-size: cover;
+}
+
+.root {
+    margin: 0 auto;
+}
+
+html {
+    color: #626771;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    min-width: 1000px;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+button {
+    list-style: none;
+    display: inline-block;
+    padding: 10px 0;
+    cursor: pointer;
+    background-color: #555555;
+    color: #7B8585;
+    border: 0;
+    width: 400px;
+    height: 50px;
+    margin: 40px auto 0 auto;
+    border-radius: 50px;    
+    transition: 0.6s;
+    font-family: 'Helvetica','sans-serif';
+    font-size: 14pt;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #FFC0CB;
+    color: #555555;
+}
+.loadingDiv{
+    margin: 20px 0 0 0;
+}
+button:focus {
+    color: #555555;
+    background-color: #FFC0CB;
+}
+.weatherSpan
+{
+    vertical-align: middle;
+}
+li {
+    list-style-type: none;
+}
+h1{
+    
+    font-size: 32pt;
+    color: #555555;    
+    font-weight: 100;
+    vertical-align: middle;    
+}
+img{
+    vertical-align: middle;
+    margin-left: 5px;
+}
+input {
+    width: 320px;
+    height: 40px;    
+    margin-bottom: 40px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    box-sizing: border-box;  
+    border: 2px #a9a9a9;  
+    border-radius: 50px;    
+    color: black;
+    font-size: 14pt;
+    background-color: #a9a9a9;
+    outline: none;
+    text-transform: capitalize;
+    font-family: 'Helvetica','sans-serif';
+}
+input:focus{
+    color: #555555;
+    background-color: #FFC0CB;
+}
+::-webkit-input-placeholder {
+    text-transform: initial;
+ }
+ 
+.timer {
+    position: absolute;
+    left: 10px;
+    top: 0px;
+}
+.container{        
+    padding: 30px;    
+    margin: 30px auto 0 auto;    
+}
