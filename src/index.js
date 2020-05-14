@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 // ReactDOM.render(<Header/>, document.body);
-ReactDOM.render(<body><App/></body>, document.body);
+ReactDOM.render(<App/>, document.body);
 // ReactDOM.render(<Footer/>, document.body);
 
 // If you want your app to work offline and load faster, you can change
