@@ -24,7 +24,7 @@ class Model
         for (let i = this.digits.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * (i + 1));        
             [this.digits[i], this.digits[j]] = [this.digits[j], this.digits[i]];
-          }
+          }        
     }
     incrementMistakeCounter(){
         this.mistakeCounter++;

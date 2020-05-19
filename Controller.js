@@ -6,29 +6,27 @@ class Controller
         this.model = model;
         this.clickFunction = null;
         this.clickBlockFunction = null;
+        this.clickCanvasFunction = null;
         this.rightNumbersCount = 0;  
-        this.rightDigits = [];              
+        this.rightDigits = [];                   
     }
     clickButton(event){        
-        this.rightDigits.length = 0;
-        this.rightNumbersCount = 0;
-        this.model.resetMistakeCounter();
-        this.model.setDigits();
-        this.model.shuffle();
         this.view.resetColors();
-        this.view.hideStartButton();
-        this.view.showDigitsBlock();
-        this.view.render(this.model.getDigits());                
-        this.view.showDigits();
-        this.view.showMistakeBlock();
-        setTimeout(this.view.hideDigits.bind(view),5000);        
-        setTimeout(this.view.setClickBlockFunction.bind(view),5000,this.clickBlockFunction)                    
-    }
+        this.model.resetMistakeCounter();        
+        this.view.hideStartButton();                
+        this.view.renderMistakeBlock(model.getCountOfMistakes());
+        this.model.setDigits();
+        this.view.showDigitsBlock(model.getDigits());        
+        this.showNumberIndices = [false,false,false,false,false]  
+        this.rightDigits = []; 
+        this.rightNumbersCount = 0;        
+        setTimeout(this.view.hideDigits.bind(view),5000);
+        setTimeout(this.view.setClickBlockFunction.bind(view),5000,this.clickBlockFunction)                                                  
+    }    
     clickBlock(event){
-        var number = view.getNumberOfClickedBlock(event); 
-        var clickedDigit = this.model.getDigit(number);
+        var index = this.view.clickCollision(event);        
+        var clickedDigit = this.model.getDigit(index);
         var rightDigit = this.model.getDigitFromSorted(this.rightNumbersCount)
-
         if (this.rightNumbersCount <= 4)
         {
             if (rightDigit != clickedDigit && this.rightDigits.indexOf(clickedDigit) == -1){
@@ -37,28 +35,30 @@ class Controller
                 this.view.updateMistakeBlock(count);
                 this.view.playAudio("audio/error.wav");               
             }
-            else if (this.rightDigits.indexOf(clickedDigit) == -1){                
-                this.view.showDigit(number);
+            else if (this.rightDigits.indexOf(clickedDigit) == -1){                                
+                this.view.showDigit(index);              
                 this.rightDigits.push(rightDigit);
-                this.rightNumbersCount++;
+                this.rightNumbersCount++;                
                 this.view.playAudio("audio/success_sound.mp3");
             }
             if (this.rightNumbersCount == 5){
-
-                this.view.showDigit(number);
+                
+                this.view.showDigit(index);              
                 this.view.playAudio("audio/applause.mp3")
                 setTimeout(this.view.hideDigitsBlock.bind(view),1000);
-                setTimeout(this.view.showStartButton.bind(view),1000);                                
-                setTimeout(this.view.hideMistakeBlock.bind(view),1000);                                
+                setTimeout(this.view.renderStartButton.bind(view),1000);                                
+                setTimeout(this.view.hideMistakeBlock.bind(view),1000);                       
+                this.view.setClickBlockFunction(undefined);                        
             }            
         }         
     }
     init(){
         this.clickFunction = this.clickButton.bind(this);
-        view.setButtonClickEvent(this.clickFunction);
-        this.clickBlockFunction = this.clickBlock.bind(this);
-        view.setClickBlockFunction(this.clickBlockFunction);
-        this.view.render(this.model.getDigits());
+        this.view.setButtonClickEvent(this.clickFunction);        
+        this.clickBlockFunction = this.clickBlock.bind(this);                                     
+        this.view.renderStartButton();         
+        this.view.hideDigitsBlock();
+        this.view.hideMistakeBlock();                     
     }
 }
 var controller = new Controller(view,model);
