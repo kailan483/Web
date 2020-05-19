@@ -12,8 +12,7 @@ class Controller
         this.showNumberIndices = [false,false,false,false,false]            
     }
     clickButton(event){        
-        this.model.resetMistakeCounter();
-        
+        this.model.resetMistakeCounter();        
         this.view.hideStartButton();        
         this.view.renderMistakeBlock(model.getCountOfMistakes());
         this.model.setDigits();
