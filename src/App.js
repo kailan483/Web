@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-import darkbg from "./imgs/logo.jpg";
 class CitySrch extends Component {
     constructor(props) {
         super(props);
@@ -25,27 +24,30 @@ class CitySrch extends Component {
     render() {        
         if (this.state.clicked && this.state.length > 0) {
             this.prevCity = this.state.city;
-            return (<div className={"citySearch"}>
+            return (<div role ="form" className={"citySearch"}>
                 <input className={"srchInput"} type="text" value={this.state.city}
                     onChange={this.handleChange}
-                    placeholder="Введите город" />
+                    placeholder="Введите город" 
+                    aria-label="Close"/>
                 <button className={"srchBtn"} onClick={this.handleClick}>Поиск</button>
                 <WeatherDisplay name={this.state.city} key={this.state.city} />
             </div>);
         } else if (!this.state.clicked && this.prevCity.length > 0){
-            return (<div className={"citySearch"}>
+            return (<div role="form" className={"citySearch"}>
                 <input className={"srchInput"} type="text" value={this.state.city}
                     onChange={this.handleChange}
-                    placeholder="Введите город" />
+                    placeholder="Введите город"
+                    aria-label="Close" />
                 <button className={"srchBtn"} onClick={this.handleClick}>Поиск</button>
                 <WeatherDisplay name={this.prevCity} key={this.prevCity} />
             </div>);
         }
         else {
-            return (<div className={"citySearch"}>
+            return (<div role="form" className={"citySearch"}>
                 <input className={"srchInput"} type="text" value={this.state.city}
                     onChange={this.handleChange}
-                    placeholder="Введите город" />
+                    placeholder="Введите город"
+                    aria-label="Close" />
                 <button className={"srchBtn"} onClick={this.handleClick}>Поиск</button>
                 </div>)
         }
@@ -83,7 +85,7 @@ class WeatherDisplay extends Component {
             weather = weatherData.weather[0];
             const iconUrl = "http://openweathermap.org/img/w/" + weather.icon + ".png";
             return (
-                <div className={'container'}>
+                <div role="weatherInfo" className={'container'}>
                     <h1>
                         {weatherData.name}, {weather.description}
                         <img src={iconUrl} alt={weatherData.description} />
@@ -102,12 +104,9 @@ class App extends Component {
         super();
     }
 
-    render() {
-        var styles = {
-            background: 'url(' + darkbg + ') ',
-        };
-        return (
-            <div className="App" style={styles}>
+    render() {    
+        return (            
+            <div className="App">
                 <CitySrch />                
             </div>
 

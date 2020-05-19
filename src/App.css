@@ -1,6 +1,16 @@
+@keyframes scale {
+    0%{        
+        transform: scale(0) ;        
+    }
+    100%{
+      transform: scale(1);
+    }
+}
 * {
     padding: 0;
-    margin: 0;    
+    margin: 0;            
+    
+    
 }
 
 .darkbg {
@@ -19,7 +29,7 @@ h4, p {
     transition: 1s;    
     font-size: 24pt;    
     margin-top: 15px;    
-    color: #555555;
+    color: white;
 }
 
 .copyRight {
@@ -37,7 +47,8 @@ h4, p {
 .App {
     margin: 0 auto;
     height: 100%;
-    background-size: cover;
+    background-image: url("./imgs/weatherLogo.jpg");
+    background-size: 100%;
 }
 
 .root {
@@ -68,8 +79,8 @@ button {
     background-color: #555555;
     color: #7B8585;
     border: 0;
-    width: 400px;
-    height: 50px;
+    width: 250px;
+    height: 40px;
     margin: 40px auto 0 auto;
     border-radius: 50px;    
     transition: 0.6s;
@@ -77,15 +88,18 @@ button {
     font-size: 14pt;
     outline: none;
     color: #fff;
-    cursor: pointer;
+    cursor: pointer;    
+   
 }
 
 button:hover {
     background-color: #FFC0CB;
     color: #555555;
+    transform: scale(1.5,1.5);
 }
 .loadingDiv{
-    margin: 20px 0 0 0;
+    margin: 20px auto 0 auto;
+    color: white;
 }
 button:focus {
     color: #555555;
@@ -101,7 +115,7 @@ li {
 h1{
     
     font-size: 32pt;
-    color: #555555;    
+    color: white;    
     font-weight: 100;
     vertical-align: middle;    
 }
@@ -123,8 +137,9 @@ input {
     font-size: 14pt;
     background-color: #a9a9a9;
     outline: none;
+    transition: 0.4s;
     text-transform: capitalize;
-    font-family: 'Helvetica','sans-serif';
+    font-family: 'Helvetica','sans-serif';    
 }
 input:focus{
     color: #555555;
